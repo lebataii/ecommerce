@@ -1,20 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: argocd-demo
+  labels:
+    app: ecommerce-frontend
+  name: ecommerce-frontend-deployment
+  namespace: ecommerce
 spec:
+  replicas: 2
+  revisionHistoryLimit: 11
   selector:
     matchLabels:
-      app: argocd-demo
-  replicas: 2
+      app: ecommerce-frontend
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
       labels:
-        app: argocd-demo
+        app: ecommerce-frontend
+      namespace: ecommerce
     spec:
       containers:
-        - name: argocd-demo
-          image: nanajanashia/argocd-app:1.2
+        - image: lebatai/ecommerce-frontend:v1
+          imagePullPolicy: Always
+          name: ecommerce-frontend
           ports:
-            - containerPort: 8080
-
+            - containerPort: 80
+              name: tcp
+              protocol: TCP

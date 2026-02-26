@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-demo-application
-  namespace: argocd
+  name: ecommerce-frontend-application
+  namespace: ecommerce
 spec:
   project: default
   source:
-    repoURL: https://github.com/TuanDoan247/ArgoCD_demo.git
+    repoURL: https:
     targetRevision: HEAD
     path: argocd/app/config
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd-demo
+    namespace: ecommerce
 
   syncPolicy:
     syncOptions:
@@ -20,4 +20,3 @@ spec:
     automated:
       selfHeal: true
       prune: true
-

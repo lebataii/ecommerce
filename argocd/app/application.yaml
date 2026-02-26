@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https:
+    repoURL: https://github.com/lebataii/ecommerce.git
     targetRevision: HEAD
     path: argocd/app/config
   destination:

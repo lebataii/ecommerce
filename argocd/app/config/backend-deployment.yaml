@@ -30,6 +30,13 @@ spec:
             - containerPort: 8080
               name: tcp
               protocol: TCP
+          resources:
+            limits:
+              cpu: '1'
+              memory: 1536Mi
+            requests:
+              cpu: 500m
+              memory: 512Mi
           volumeMounts:
             - mountPath: /run/src/main/resources/application.properties
               name: ecommerce-backend-application-properties-config-volume

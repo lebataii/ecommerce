@@ -23,7 +23,7 @@ spec:
       namespace: ecommerce
     spec:
       containers:
-        - image: lebatai/ecommerce-backend:v1
+        - image: lebatai/ecommerce-backend:v2
           imagePullPolicy: Always
           name: ecommerce-backend
           ports:

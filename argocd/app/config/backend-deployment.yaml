@@ -23,10 +23,6 @@ spec:
       namespace: ecommerce
     spec:
       containers:
-        - envFrom:
-            - secretRef:
-                name: ecommerce-backend-database-connection
-                optional: false
           image: lebatai/ecommerce-backend:v2
           imagePullPolicy: Always
           name: ecommerce-backend
